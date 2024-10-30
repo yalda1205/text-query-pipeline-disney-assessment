@@ -35,9 +35,26 @@ The solution is designed to handle large datasets through batch processing, with
 
 ## Running the Project
 
-### Run `data_pipeline.py`
+1. ### Run `data_pipeline.py`:
 
-This script will create `data_assessment.db` and `vector_index.faiss`, which the API will use.
+- This script will create `data_assessment.db` and `vector_index.faiss`, which the API will use.
 
 ```bash
 python data_pipeline.py
+
+2. ### Run `app.py`:
+- After creating the database and FAISS index, start the Flask API.
+
+```bash
+python app.py
+
+3. ### Test the API:
+- The Flask API will start at `http://127.0.0.1:5000`
+- Send a POST request to `http://127.0.0.1:5000/query` with a JSON payload:
+
+```json
+{
+ "query": "your query text here"
+}
+
+
