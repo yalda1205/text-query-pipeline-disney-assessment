@@ -60,8 +60,34 @@ python app.py
 ```
 ## Code Documentation and Design Decisions
 ### Data Ingestion and Preprocessing
-- ### Schema Design ###:
+- ### Schema Design:
   SQLite was chosen for simplicity, with indexes created on frequently queried columns (`Incident_date`, `Theme_Park`).
-- ### Trade-offs ###:
+- ### Trade-offs:
   SQLite is a lightweight choice suitable for small-to-medium datasets; for larger datasets or production use, a more scalable RDBMS like PostgreSQL would be ideal.
+### Vectorization and FAISS Indexing
+- ### Embedding Generation:
+  Sentence-BERT provides embeddings that capture semantic meaning.
+- ### Vector Storage:
+  FAISS (Facebook AI Similarity Search) is used for efficient similarity search.
+- ### Scalability:
+  The data is processed in batches to manage memory usage, and FAISS allows for fast similarity searches over large vector spaces.
+### Query and Retrieve API
+- ### API Design:
+  The API uses a query embedding to retrieve similar records based on cosine similarity.
+- ### Retriever-Augmented Generation (RAG):
+  After retrieving similar records, the API generates a summary from the descriptions for RAG use cases.
+### Monitoring and Scalability
+- ### Logging:
+  Each step is logged for tracking progress and monitoring.
+- ### Batch Processing:
+  Embeddings are generated in batches to handle larger datasets efficiently.
+
+  ## Future Improvements
+  - ### Alternative Vector Storage:
+    For production, a managed vector database like Pinecone could replace FAISS.
+- ### Advanced RAG:
+   A language model could be used to generate more nuanced summaries based on retrieved data.
+- ### Database Scaling:
+   For larger datasets, migrating to a cloud-based database would enhance scalability.
+  
 
