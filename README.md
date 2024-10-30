@@ -58,4 +58,10 @@ python app.py
  "query": "your query text here"
 }
 ```
+## Code Documentation and Design Decisions
+### Data Ingestion and Preprocessing
+- ### Schema Design ###:
+  SQLite was chosen for simplicity, with indexes created on frequently queried columns (`Incident_date`, `Theme_Park`).
+- ### Trade-offs ###:
+  SQLite is a lightweight choice suitable for small-to-medium datasets; for larger datasets or production use, a more scalable RDBMS like PostgreSQL would be ideal.
 
