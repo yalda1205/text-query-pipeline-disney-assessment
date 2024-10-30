@@ -20,16 +20,24 @@ The solution is designed to handle large datasets through batch processing, with
 
 ## Getting Started
 
-### Prerequisites
+## Requirements
 
-- Python 3.x
-- Required packages (install using):
-  ```bash
-  pip install -r requirements.txt
+`requirements.txt` includes:
+- `flask`
+- `sentence-transformers`
+- `faiss-cpu`
+- `numpy`
+- `pandas`
 
-requirements.txt includes:
-flask
-sentence-transformers
-faiss-cpu
-numpy
-pandas
+## Files
+
+- **`data.csv`**: CSV file with unstructured data (e.g., `description` column). Place `data.csv` in the same directory as `data_pipeline.py`, or modify the file path in the code if located elsewhere.
+
+## Running the Project
+
+### Run `data_pipeline.py`
+
+This script will create `data_assessment.db` and `vector_index.faiss`, which the API will use.
+
+```bash
+python data_pipeline.py
