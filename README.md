@@ -26,3 +26,10 @@ The solution is designed to handle large datasets through batch processing, with
 - Required packages (install using):
   ```bash
   pip install -r requirements.txt
+
+requirements.txt includes:
+flask
+sentence-transformers
+faiss-cpu
+numpy
+pandas
